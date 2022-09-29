@@ -2,13 +2,13 @@
 
 
 #include "MyGameModeBase.h"
-#include "MyCharacter.h"
+#include "AlienCharacter.h"
 
 AMyGameModeBase::AMyGameModeBase()
 {
 	//DefaultPawnClass = AMyCharacter::StaticClass();
 
-	static ConstructorHelpers::FClassFinder<ACharacter> BP_Char(TEXT("Blueprint'/Game/Blueprints/BP_MyCharacter.BP_MyCharacter_C'"));
+	static ConstructorHelpers::FClassFinder<ACharacter> BP_Char(TEXT("Blueprint'/Game/Blueprints/BP_AlienCharacter.BP_AlienCharacter_C'"));
 
 	if (BP_Char.Succeeded())
 	{

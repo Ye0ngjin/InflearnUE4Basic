@@ -7,7 +7,6 @@
 #include "Components/CapsuleComponent.h"
 #include "MyAnimInstance.h"
 #include "DrawDebugHelpers.h"
-#include "MyWeapon.h"
 #include "MyStatComponent.h"
 #include "Components/WidgetComponent.h"
 #include "MyCharacterWidget.h"
@@ -31,7 +30,7 @@ AMyCharacter::AMyCharacter()
 	GetMesh()->SetRelativeLocationAndRotation(
 		FVector(0.f, 0.f, -88.f), FRotator(0.f, -90.f, 0.f));
 
-	static ConstructorHelpers::FObjectFinder<USkeletalMesh> SM(TEXT("SkeletalMesh'/Game/ParagonGreystone/Characters/Heroes/Greystone/Meshes/Greystone.Greystone'"));
+	static ConstructorHelpers::FObjectFinder<USkeletalMesh> SM(TEXT("SkeletalMesh'/Game/Alien/Alien.Alien'"));
 
 	if (SM.Succeeded())
 	{
@@ -61,16 +60,6 @@ void AMyCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	FName WeaponSocket(TEXT("hand_l_socket"));
-
-	auto CurrentWeapon = GetWorld()->SpawnActor<AMyWeapon>(FVector::ZeroVector, FRotator::ZeroRotator);
-
-	if (CurrentWeapon)
-	{
-		//CurrentWeapon->AttachToComponent(GetMesh(),
-		//	FAttachmentTransformRules::SnapToTargetNotIncludingScale,
-		//	WeaponSocket);
-	}
 }
 
 void AMyCharacter::PostInitializeComponents()
@@ -119,7 +108,7 @@ void AMyCharacter::Attack()
 	AnimInstance->PlayAttackMontage();
 
 	AnimInstance->JumpToSection(AttackIndex);
-	AttackIndex = (AttackIndex + 1) % 3;
+	AttackIndex = 0;
 
 	IsAttacking = true;
 }

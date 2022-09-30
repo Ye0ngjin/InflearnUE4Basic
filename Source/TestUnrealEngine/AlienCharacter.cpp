@@ -7,7 +7,6 @@
 #include "Components/CapsuleComponent.h"
 #include "AlienAnimInstance.h"
 #include "DrawDebugHelpers.h"
-#include "MyWeapon.h"
 #include "MyStatComponent.h"
 #include "Components/WidgetComponent.h"
 #include "MyCharacterWidget.h"

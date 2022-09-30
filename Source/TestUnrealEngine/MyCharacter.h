@@ -69,9 +69,6 @@ public:
 	float LeftRightValue = 0;
 
 	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* Weapon;
-
-	UPROPERTY(VisibleAnywhere)
 	class UMyStatComponent* Stat;
 
 	UPROPERTY(VisibleAnywhere)
